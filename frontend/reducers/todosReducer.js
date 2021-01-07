@@ -5,19 +5,20 @@ const todosReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_TODOS:
             const newTodos = {
-                [action.id]: { title: action.title, body: action.body, 
-                    done: action.done, id: action.id }
-            } 
+                [action.id]: { 
+                    title: action.title, // consider how to access this info once 'todo' exists
+                    body: action.body,
+                    done: action.done,
+                    id: action.id 
+                }
+            }
             const newState = Object.assign({}, state, newTodos);
             return newState;
-
-        // case RECEIVE_TODO:
-
         default:
-            return state;
-    }
+                return state;
+        }
 
 }
 
 
-
+export default todosReducer;
