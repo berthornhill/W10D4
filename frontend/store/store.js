@@ -15,5 +15,5 @@ export default configureStore;
 
 // obj1 = {id: 1, body: "this"}
 // obj2 = {id: 2, body: "this"}
-// obj3 = {id: 3, body: "this"
+// obj3 = {id: 3, body: "this"}
 // obj4 = {id: 4, body: "this"}
