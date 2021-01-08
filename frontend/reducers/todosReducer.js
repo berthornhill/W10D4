@@ -4,21 +4,29 @@ const todosReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_TODOS:
-            const newTodos = {
-                [action.id]: { 
-                    title: action.title, // consider how to access this info once 'todo' exists
-                    body: action.body,
-                    done: action.done,
-                    id: action.id 
-                }
-            }
+            const newTodos = unpackArray(action.todos);
             const newState = Object.assign({}, state, newTodos);
             return newState;
+        case RECEIVE_TODO:
+            const newTodo = {[action.todo.id]: action.todo}
+            return newState;
         default:
-                return state;
+            return state;
         }
 
 }
 
+// [{ id: 1, ...etc }, { id: 2, ...etc }, ...etc]
+
+
+const unpackArray = function(array) {
+    let objects = {};
+    
+    array.forEach (obj => {
+        objects[obj.id] = obj
+    }) 
+
+    return objects;
+} 
 
 export default todosReducer;
