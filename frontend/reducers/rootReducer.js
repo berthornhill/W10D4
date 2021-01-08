@@ -3,7 +3,7 @@ import { combineReducers } from "redux"; //method built into redux that manages 
 
 
 const rootReducer = combineReducers({
-   todosReducer: todosReducer
+   todos: todosReducer
 })
 
 export default rootReducer;
